@@ -23,9 +23,9 @@ void draw() {
 }
 
 PVector calcNew() {
-  PVector x = ps.get(ps.size() - 3);
-  PVector diff = ps.get(ps.size() - 1).copy().sub(x);
-  PVector newTip = x.copy().sub(diff.copy().mult(0.06));
+  PVector x = ps.get(ps.size() - 3).copy();
+  PVector diff = ps.get(ps.size() - 1).copy();
+  PVector newTip = x.sub(diff.sub(x).mult(0.1));
   return newTip;
 }
 
