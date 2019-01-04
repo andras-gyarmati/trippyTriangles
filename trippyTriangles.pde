@@ -5,10 +5,10 @@ void setup() {
   size(600, 600);
   start = new PVector(width / 2, height / 2);
   ps = new ArrayList<PVector>();
-  psadd(0, 0);
-  psadd(10, 0);
-  psadd(5, 8.5);
-  frameRate(5);
+  psadd(-10, -9);
+  psadd(10, -9);
+  psadd(0, 9);
+  frameRate(10);
 }
 
 void draw() {
@@ -24,8 +24,8 @@ void draw() {
 
 PVector calcNew() {
   PVector x = ps.get(ps.size() - 3);
-  PVector tip = ps.get(ps.size() - 1);
-  PVector newTip = x.copy().sub(tip.copy().mult(0.3));
+  PVector diff = ps.get(ps.size() - 1).copy().sub(x);
+  PVector newTip = x.copy().sub(diff.copy().mult(0.06));
   return newTip;
 }
 
